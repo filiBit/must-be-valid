@@ -1,0 +1,40 @@
+import { arrayOfUnknowns, arrayOfStrings, func1, func2, obj1, obj2 } from './mocks'
+import { isPlainObject, mustBePlainObject } from './plainObjects'
+
+describe('Plain object validation', () => {
+  test('isPLainObject() validation', () => {
+    expect(isPlainObject('')).toBe(false)
+    expect(isPlainObject('FJDG')).toBe(false)
+    expect(isPlainObject(undefined)).toBe(false)
+    expect(isPlainObject(null)).toBe(false)
+    expect(isPlainObject(0)).toBe(false)
+    expect(isPlainObject(5)).toBe(false)
+    expect(isPlainObject(Infinity)).toBe(false)
+    expect(isPlainObject(obj1)).toBe(true)
+    expect(isPlainObject(obj2)).toBe(true)
+    expect(isPlainObject(arrayOfUnknowns)).toBe(false)
+    expect(isPlainObject(arrayOfStrings)).toBe(false)
+    expect(isPlainObject(true)).toBe(false)
+    expect(isPlainObject(false)).toBe(false)
+    expect(isPlainObject(func1)).toBe(false)
+    expect(isPlainObject(func2)).toBe(false)
+  })
+
+  test('mustBePlainObject() validation', () => {
+    expect(() => mustBePlainObject('')).toThrowError()
+    expect(() => mustBePlainObject('FJDG')).toThrowError()
+    expect(() => mustBePlainObject(undefined)).toThrowError()
+    expect(() => mustBePlainObject(null)).toThrowError()
+    expect(() => mustBePlainObject(0)).toThrowError()
+    expect(() => mustBePlainObject(5)).toThrowError()
+    expect(() => mustBePlainObject(Infinity)).toThrowError()
+    expect(mustBePlainObject(obj1)).toBe(obj1)
+    expect(mustBePlainObject(obj2)).toBe(obj2)
+    expect(() => mustBePlainObject(arrayOfUnknowns)).toThrowError()
+    expect(() => mustBePlainObject(arrayOfStrings)).toThrowError()
+    expect(() => mustBePlainObject(true)).toThrowError()
+    expect(() => mustBePlainObject(false)).toThrowError()
+    expect(() => mustBePlainObject(func1)).toThrowError()
+    expect(() => mustBePlainObject(func2)).toThrowError()
+  })
+})

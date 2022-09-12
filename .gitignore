@@ -1,0 +1,7 @@
+node_modules
+dist
+.*
+!.editorconfig
+!.eslintrc.cjs
+!.prettierrc
+!.gitignore

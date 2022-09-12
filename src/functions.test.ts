@@ -1,0 +1,40 @@
+import { isFunction, mustBeFunction } from './functions'
+import { arrayOfUnknowns, arrayOfStrings, func1, func2, obj1, obj2 } from './mocks'
+
+describe('Functions validation', () => {
+  test('isFunction() validation', () => {
+    expect(isFunction('')).toBe(false)
+    expect(isFunction('FJDG')).toBe(false)
+    expect(isFunction(undefined)).toBe(false)
+    expect(isFunction(null)).toBe(false)
+    expect(isFunction(0)).toBe(false)
+    expect(isFunction(5)).toBe(false)
+    expect(isFunction(Infinity)).toBe(false)
+    expect(isFunction(obj1)).toBe(false)
+    expect(isFunction(obj2)).toBe(false)
+    expect(isFunction(arrayOfUnknowns)).toBe(false)
+    expect(isFunction(arrayOfStrings)).toBe(false)
+    expect(isFunction(true)).toBe(false)
+    expect(isFunction(false)).toBe(false)
+    expect(isFunction(func1)).toBe(true)
+    expect(isFunction(func2)).toBe(true)
+  })
+
+  test('mustBeFunction() validation', () => {
+    expect(() => mustBeFunction('')).toThrowError()
+    expect(() => mustBeFunction('FJDG')).toThrowError()
+    expect(() => mustBeFunction(undefined)).toThrowError()
+    expect(() => mustBeFunction(null)).toThrowError()
+    expect(() => mustBeFunction(0)).toThrowError()
+    expect(() => mustBeFunction(5)).toThrowError()
+    expect(() => mustBeFunction(Infinity)).toThrowError()
+    expect(() => mustBeFunction(obj1)).toThrowError()
+    expect(() => mustBeFunction(obj2)).toThrowError()
+    expect(() => mustBeFunction(arrayOfUnknowns)).toThrowError()
+    expect(() => mustBeFunction(arrayOfStrings)).toThrowError()
+    expect(() => mustBeFunction(true)).toThrowError()
+    expect(() => mustBeFunction(false)).toThrowError()
+    expect(mustBeFunction(func1)).toBe(func1)
+    expect(mustBeFunction(func2)).toBe(func2)
+  })
+})

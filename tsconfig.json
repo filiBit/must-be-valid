@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": ["./src/**/*.ts"],
+  "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["ESNext"],
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
