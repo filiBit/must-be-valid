@@ -1,10 +1,10 @@
-# must-validate
+# must-be-valid
 
 A Javascript library for dynamic type validation with Typescript support
 
 ## Install
 
-`npm install must-validate`
+`npm install must-be-valid`
 
 ## Use
 
@@ -15,7 +15,7 @@ import {
   mustBeString,
   mustBeNumber,
   mustBePlainObject,
-} from './must-validate'
+} from './must-be-valid'
 
 function makeUser(userInfo: unknown): User {
   const userInfoObject = mustBePlainObject(userInfo) // throws an error if not valid
