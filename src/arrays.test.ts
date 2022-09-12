@@ -1,4 +1,11 @@
-import { isArray, isArrayOf, mustBeArray, mustBeArrayOf } from './arrays'
+import {
+  isArray,
+  isArrayOf,
+  isNonEmptyArray,
+  mustBeArray,
+  mustBeArrayOf,
+  mustBeNonEmptyArray,
+} from './arrays'
 import {
   arrayOfUnknowns,
   arrayOfArrays,
@@ -46,6 +53,28 @@ describe('Array validation', () => {
     expect(() => mustBeArray(false)).toThrow()
     expect(() => mustBeArray(func1)).toThrow()
     expect(() => mustBeArray(func2)).toThrow()
+  })
+
+  test('isNonEmptyArray() validation', () => {
+    expect(isNonEmptyArray('')).toBe(false)
+    expect(isNonEmptyArray([])).toBe(false)
+    expect(isNonEmptyArray(null)).toBe(false)
+    expect(isNonEmptyArray(0)).toBe(false)
+    expect(isNonEmptyArray([])).toBe(false)
+    expect(isNonEmptyArray(arrayOfStrings)).toBe(true)
+    expect(isNonEmptyArray(arrayOfnumbers)).toBe(true)
+    expect(isNonEmptyArray(arrayOfArrays)).toBe(true)
+  })
+
+  test('mustBeNonEmptyArray() validation', () => {
+    expect(() => mustBeNonEmptyArray('')).toThrow()
+    expect(() => mustBeNonEmptyArray([])).toThrow()
+    expect(() => mustBeNonEmptyArray(null)).toThrow()
+    expect(() => mustBeNonEmptyArray(0)).toThrow()
+    expect(() => mustBeNonEmptyArray([])).toThrow()
+    expect(mustBeNonEmptyArray(arrayOfStrings)).toBe(arrayOfStrings)
+    expect(mustBeNonEmptyArray(arrayOfnumbers)).toBe(arrayOfnumbers)
+    expect(mustBeNonEmptyArray(arrayOfArrays)).toBe(arrayOfArrays)
   })
 
   test('isArrayOf() validation', () => {
