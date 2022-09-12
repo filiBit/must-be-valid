@@ -29,6 +29,9 @@
     "type": "git",
     "url": "https://github.com/filiBit/must-be-valid.git"
   },
+  "bugs": {
+    "url": "https://github.com/filiBit/must-be-valid/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=16.0.0",
