@@ -31,10 +31,11 @@ function makeUser(userInfo: unknown): User {
 
 ## Contribute
 
-1. Make changes
-2. Check for consistent code style: `npm run lint`, or auto-apply: `npm run lint:fix`
-3. Ensure all tests pass: `npm run test`
-4. Submit a Pull request with description
+1. from branch `develop` create a feature branch with descriptive name
+2. make changes
+3. check for code style inconsistencies with `npm run lint`
+4. ensure all tests pass: `npm run test`
+5. submit a Pull request with description
 
 ## Contact author
 
