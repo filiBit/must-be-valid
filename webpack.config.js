@@ -18,7 +18,6 @@ export default {
       import: './src/index.ts',
       filename: 'must-be-valid.cjs',
       library: {
-        name: 'mustBeValid',
         type: 'commonjs',
       },
     },
