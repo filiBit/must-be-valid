@@ -1,6 +1,6 @@
 # must-be-valid
 
-A Javascript library for dynamic type validation with Typescript support
+A Javascript library for type validation with Typescript support
 
 ## Install
 
@@ -15,16 +15,16 @@ import {
   mustBeString,
   mustBeNumber,
   mustBePlainObject,
-} from './must-be-valid'
+} from 'must-be-valid'
 
 function makeUser(userInfo: unknown): User {
-  const userInfoObject = mustBePlainObject(userInfo) // throws an error if not valid
+  const userInfoObject = mustBePlainObject(userInfo) // throws if not valid
 
   return {
-    userName: mustBeString(userInfoObject.userName), // throws an error if not valid
-    password: mustBeString(userInfoObject.password), // throws an error if not valid
-    age: mustBeNumber(userInfoObject.age), // throws an error if not valid
-    friendIds: mustBeArrayOf(userInfoObject.friendIds, isString), // throws an error if not valid
+    userName: mustBeString(userInfoObject.userName), // throws if not valid
+    password: mustBeString(userInfoObject.password), // throws if not valid
+    age: mustBeNumber(userInfoObject.age), // throws if not valid
+    friendIds: mustBeArrayOf(userInfoObject.friendIds, isString), // throws  if not valid
   }
 }
 ```
@@ -32,8 +32,8 @@ function makeUser(userInfo: unknown): User {
 ## Contribute
 
 1. Make changes
-2. Ensure consistent code style with `npm run eslint`, or `npm run lint:fix`
-3. Ensure all tests pass `npm run test`
+2. Check for consistent code style: `npm run lint`, or auto-apply: `npm run lint:fix`
+3. Ensure all tests pass: `npm run test`
 4. Submit a Pull request with description
 
 ## Contact author
