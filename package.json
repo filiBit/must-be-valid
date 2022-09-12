@@ -1,13 +1,13 @@
 {
   "name": "must-be-valid",
   "version": "1.0.1",
-  "description": "A Javascript library for dynamic type validation with Typescript support",
+  "description": "A Javascript library for type validation with Typescript support",
   "keywords": [
     "type",
     "validation",
-    "assertion",
+    "javascript",
     "typescript",
-    "javascript"
+    "assertion"
   ],
   "license": "MIT",
   "files": [
