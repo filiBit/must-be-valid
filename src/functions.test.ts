@@ -1,5 +1,5 @@
 import { isFunction, mustBeFunction } from './functions'
-import { arrayOfUnknowns, arrayOfStrings, func1, func2, obj1, obj2 } from './mocks'
+import { arrayOfStrings, arrayOfUnknowns, func1, func2, obj1, obj2 } from './mocks'
 
 describe('Functions validation', () => {
   test('isFunction() validation', () => {
