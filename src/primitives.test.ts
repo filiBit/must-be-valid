@@ -1,4 +1,4 @@
-import { arrayOfUnknowns, arrayOfStrings, func1, func2, obj1, obj2 } from './mocks'
+import { arrayOfStrings, arrayOfUnknowns, func1, func2, obj1, obj2 } from './mocks'
 import { isNumber, isString, mustBeNumber, mustBeString } from './primitives'
 
 describe('Strings validation', () => {
