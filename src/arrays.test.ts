@@ -1,22 +1,14 @@
+import { isArray, isNonEmptyArray, mustBeArray, mustBeNonEmptyArray } from './arrays'
 import {
-  isArray,
-  isArrayOf,
-  isNonEmptyArray,
-  mustBeArray,
-  mustBeArrayOf,
-  mustBeNonEmptyArray,
-} from './arrays'
-import {
-  arrayOfUnknowns,
   arrayOfArrays,
   arrayOfnumbers,
   arrayOfStrings,
+  arrayOfUnknowns,
   func1,
   func2,
   obj1,
   obj2,
 } from './mocks'
-import { isNumber, isString } from './primitives'
 
 describe('Array validation', () => {
   test('isArray() validation', () => {
@@ -75,26 +67,5 @@ describe('Array validation', () => {
     expect(mustBeNonEmptyArray(arrayOfStrings)).toBe(arrayOfStrings)
     expect(mustBeNonEmptyArray(arrayOfnumbers)).toBe(arrayOfnumbers)
     expect(mustBeNonEmptyArray(arrayOfArrays)).toBe(arrayOfArrays)
-  })
-
-  test('isArrayOf() validation', () => {
-    expect(isArrayOf('', isString)).toBe(false)
-    expect(isArrayOf([], isString)).toBe(false)
-    expect(isArrayOf(null, isNumber)).toBe(false)
-    expect(isArrayOf(0, isNumber)).toBe(false)
-    expect(isArrayOf([''], isString)).toBe(true)
-    expect(isArrayOf(arrayOfStrings, isString)).toBe(true)
-    expect(isArrayOf(arrayOfnumbers, isNumber)).toBe(true)
-    expect(isArrayOf(arrayOfArrays, isArray)).toBe(true)
-  })
-
-  test('mustBeArrayOf() validation', () => {
-    expect(() => mustBeArrayOf('', isString)).toThrow()
-    expect(() => mustBeArrayOf([], isString)).toThrow()
-    expect(() => mustBeArrayOf(null, isNumber)).toThrow()
-    expect(() => mustBeArrayOf(0, isNumber)).toThrow()
-    expect(mustBeArrayOf(arrayOfStrings, isString)).toBe(arrayOfStrings)
-    expect(mustBeArrayOf(arrayOfnumbers, isNumber)).toBe(arrayOfnumbers)
-    expect(mustBeArrayOf(arrayOfArrays, isArray)).toBe(arrayOfArrays)
   })
 })
