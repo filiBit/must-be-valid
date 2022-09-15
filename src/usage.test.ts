@@ -1,14 +1,15 @@
-import { mustBeArrayOf } from './arrays'
+import { mustBeArray } from './arrays'
 import { mustBePlainObject } from './plainObjects'
-import { isString, mustBeNumber, mustBeString } from './primitives'
+import { mustBeNumber, mustBeString } from './primitives'
 
-function makeUser(userInfo: unknown) {
-  const userInfoObject = mustBePlainObject(userInfo) // throws an error if not valid
+function makeUser(userDto: unknown) {
+  const userInfo = mustBePlainObject(userDto) // throws if not valid
+
   return {
-    userName: mustBeString(userInfoObject.userName), // throws an error if not valid
-    password: mustBeString(userInfoObject.password), // throws an error if not valid
-    age: mustBeNumber(userInfoObject.age), // throws an error if not valid
-    friendIds: mustBeArrayOf(userInfoObject.friendIds, isString), // throws an error if not valid
+    userName: mustBeString(userInfo.userName), // throws if not valid
+    password: mustBeString(userInfo.password), // throws if not valid
+    age: mustBeNumber(userInfo.age), // throws if not valid
+    friendIds: mustBeArray(userInfo.friendIds).map((f) => mustBeString(f)), // throws if not valid
   }
 }
 
