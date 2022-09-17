@@ -15,5 +15,5 @@ export function mustBeNonEmptyArray<T>(value: T | T[]): T[] {
   const array = mustBeArray(value)
   if (isNonEmptyArray(array)) return array
 
-  throw new Error('The value must be a non empty array of arrays')
+  throw new Error('The value must be a non empty array')
 }
