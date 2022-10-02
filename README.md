@@ -49,6 +49,7 @@ const age = mustBe.number(userInfo.age).min(13).value // throws if not valid
 
 - [API documentation](API.md)
 - [Playground](https://codesandbox.io/s/must-be-valid-example-sycyz8)
+- [Changelog](changelog.md)
 
 ## Contribute
 
