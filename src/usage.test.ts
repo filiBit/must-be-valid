@@ -45,7 +45,7 @@ const userInfoInvalid2 = {
 describe('Usage tests', () => {
   test('Example: makeUser()', () => {
     expect(makeUser(userInfo1)).toEqual(userInfo1)
-    expect(makeUser(userInfo2)).toEqual(userInfo2)
+    expect(() => makeUser(userInfo2)).toThrow()
     expect(() => makeUser(userInfoInvalid1)).toThrow()
     expect(() => makeUser(userInfoInvalid2)).toThrow()
   })
