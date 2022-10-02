@@ -1,5 +1,5 @@
-import { isFunction, mustBeFunction } from './functions'
-import { arrayOfStrings, arrayOfUnknowns, func1, func2, obj1, obj2 } from './mocks'
+import { isFunction, mustBeFunction } from './core'
+import { arrayEmpty, arrayOfStrings, func1, func2, obj1, obj2 } from '../../_testUtils'
 
 describe('Functions validation', () => {
   test('isFunction() validation', () => {
@@ -12,7 +12,7 @@ describe('Functions validation', () => {
     expect(isFunction(Infinity)).toBe(false)
     expect(isFunction(obj1)).toBe(false)
     expect(isFunction(obj2)).toBe(false)
-    expect(isFunction(arrayOfUnknowns)).toBe(false)
+    expect(isFunction(arrayEmpty)).toBe(false)
     expect(isFunction(arrayOfStrings)).toBe(false)
     expect(isFunction(true)).toBe(false)
     expect(isFunction(false)).toBe(false)
@@ -30,7 +30,7 @@ describe('Functions validation', () => {
     expect(() => mustBeFunction(Infinity)).toThrowError()
     expect(() => mustBeFunction(obj1)).toThrowError()
     expect(() => mustBeFunction(obj2)).toThrowError()
-    expect(() => mustBeFunction(arrayOfUnknowns)).toThrowError()
+    expect(() => mustBeFunction(arrayEmpty)).toThrowError()
     expect(() => mustBeFunction(arrayOfStrings)).toThrowError()
     expect(() => mustBeFunction(true)).toThrowError()
     expect(() => mustBeFunction(false)).toThrowError()
