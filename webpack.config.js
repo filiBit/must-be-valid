@@ -6,12 +6,11 @@ const dirname = url.fileURLToPath(new URL('.', import.meta.url))
 export default {
   mode: 'production',
   entry: {
-    umd: {
+    esm: {
       import: './src/index.ts',
       filename: 'must-be-valid.js',
       library: {
-        name: 'mustBeValid',
-        type: 'umd',
+        type: 'module',
       },
     },
     cjs: {
@@ -25,6 +24,9 @@ export default {
   output: {
     path: path.resolve(dirname, './dist'),
     clean: true,
+  },
+  experiments: {
+    outputModule: true,
   },
   resolve: {
     extensions: ['.ts'],

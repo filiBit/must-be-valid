@@ -1,0 +1,40 @@
+import { arrayEmpty, arrayOfStrings, func1, func2, obj1, obj2 } from '../../_testUtils'
+import { isObject, mustBeObject } from './core'
+
+describe('Plain object validation', () => {
+  test('isPLainObject() validation', () => {
+    expect(isObject('')).toBe(false)
+    expect(isObject('FJDG')).toBe(false)
+    expect(isObject(undefined)).toBe(false)
+    expect(isObject(null)).toBe(false)
+    expect(isObject(0)).toBe(false)
+    expect(isObject(5)).toBe(false)
+    expect(isObject(Infinity)).toBe(false)
+    expect(isObject(obj1)).toBe(true)
+    expect(isObject(obj2)).toBe(true)
+    expect(isObject(arrayEmpty)).toBe(false)
+    expect(isObject(arrayOfStrings)).toBe(false)
+    expect(isObject(true)).toBe(false)
+    expect(isObject(false)).toBe(false)
+    expect(isObject(func1)).toBe(false)
+    expect(isObject(func2)).toBe(false)
+  })
+
+  test('mustBePlainObject() validation', () => {
+    expect(() => mustBeObject('')).toThrowError()
+    expect(() => mustBeObject('FJDG')).toThrowError()
+    expect(() => mustBeObject(undefined)).toThrowError()
+    expect(() => mustBeObject(null)).toThrowError()
+    expect(() => mustBeObject(0)).toThrowError()
+    expect(() => mustBeObject(5)).toThrowError()
+    expect(() => mustBeObject(Infinity)).toThrowError()
+    expect(mustBeObject(obj1)).toBe(obj1)
+    expect(mustBeObject(obj2)).toBe(obj2)
+    expect(() => mustBeObject(arrayEmpty)).toThrowError()
+    expect(() => mustBeObject(arrayOfStrings)).toThrowError()
+    expect(() => mustBeObject(true)).toThrowError()
+    expect(() => mustBeObject(false)).toThrowError()
+    expect(() => mustBeObject(func1)).toThrowError()
+    expect(() => mustBeObject(func2)).toThrowError()
+  })
+})

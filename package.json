@@ -1,7 +1,7 @@
 {
   "name": "must-be-valid",
-  "version": "2.0.0",
-  "description": "A Javascript library for type validation with Typescript support",
+  "version": "3.0.0",
+  "description": "A Javascript library for data & type validation with Typescript support",
   "keywords": [
     "data",
     "type",
@@ -35,8 +35,8 @@
   },
   "type": "module",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
   },
   "scripts": {
     "build": "webpack",
