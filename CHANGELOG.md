@@ -13,8 +13,11 @@
 - Additional string core validators
 - Additional number core validators
 - Additional array core validators
+- API documentation
+- Source code documentation with JSDoc
 
 ### Changed
 
-- Error messages
-- Type notations
+- Fix bundling of ES modules (`import` statement is now supported)
+- Improve Error messages
+- Improve Type notations
